@@ -1,0 +1,584 @@
+/* CSS reset */
+* {padding:0; margin:0;}
+ul,li {list-style:none;}
+fieldset, img {border:none;}
+/*body {background:#f6f6f6;}*/
+body,button,input,select,textarea {font:12px/1.5 "Microsoft Yahei",\5FAE\8F6F\96C5\9ED1,"SimHei",tahoma,arial,"Hiragino Sans GB",\5b8b\4f53;}    /*字体(unicode)：宋体(\5B8B\4F53)黑体(\9ED1\4F53)微软雅黑(\5FAE\8F6F\96C5\9ED1)*/
+input,select,textarea {font-size:100%;} /* 默认并不集成父级的文字大小 */
+textarea {resize:none;}
+table {border-collapse:collapse;border-spacing:0;}
+button {cursor:pointer;}
+em {font-style:normal;}
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:500;}
+a {text-decoration:none;}
+a:focus {outline:none;}
+
+/* ie debug */
+img,li {vertical-align:top;}
+th {text-align:inherit;}
+iframe {display:block;}
+
+/* CSS3 渐进增强 */
+/*textarea:focus, input[type="text"]:focus, input[type="password"]:focus {border-color: rgba(25, 118, 232, 0.8) !important;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(25, 118, 232, 0.6);outline: 0 none;}*/
+a:hover, a:active, a:focus {text-decoration:none; -webkit-transition: color 0.3s ease; transition: color 0.3s ease;}
+
+/* clearfix */
+.clearfix{clear:both;}
+.clearfix:after{content:"\0020";display:block;height:0;clear:both;}
+.clearfix{zoom:1;}
+.clearit{clear:both;height:0;font-size:0;overflow:hidden;}
+
+/* 单行文字溢出时出现省略号，需设定宽度 */ 
+.fn-text-overflow {overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.fl{float:left;}
+.fr{float:right;}
+
+/*header start*/
+/*.m-header-part,*/
+.m-nav-part{margin: 0 auto;width: 1240px;}
+.m-header-part,
+.main-content{margin: 0 auto;width: 1240px;}
+.m-header-part-w{position: relative; margin: 0 auto;width: 100%;background: #fff; z-index: 10002}
+.m-header-part{padding: 5px 0;height: 60px;}
+.m-logo{float: left;width: 144px;height: 60px;background: url(//n.sinaimg.cn/finance/pc/cj/kandian/img/article_pic01.png) no-repeat center center;background-image: -webkit-image-set(url(//n.sinaimg.cn/finance/pc/cj/kandian/img/article_pic01.png) 1x, url(//n.sinaimg.cn/finance/pc/cj/kandian/img/article_pic01_2x.png) 2x);}
+.m-login{float: right;}
+#SI_User{width: auto!important;margin-top: 8px;}
+.weixin-popup {z-index: 10004!important}
+
+
+/*search*/
+.m-search{position: relative;float: right;margin-right: 30px;}
+.search-trigger{float: left;margin: 16px 0 0 10px;width: 188px;height: 28px;border: 1px solid #ededed;overflow: hidden;}
+.search-trigger .search-ipt{display: inline-block;margin: 4px 0;width: 117px;height: 20px;padding: 0 10px;background-color: #ffffff;color: #333;font-size: 13px;border: none;outline: none;}
+.search-trigger .search-ipt:-moz-placeholder{color: #b4b4b4;opacity: 1;}
+.search-trigger .search-ipt::-moz-placeholder{/* Mozilla Firefox 19+*/color: #b4b4b4;opacity: 1;}
+.search-trigger .search-ipt:-ms-input-placeholder{color: #b4b4b4;opacity: 1;}
+.search-trigger .search-ipt::-webkit-input-placeholder{color: #b4b4b4;opacity: 1;}
+.search-trigger .btn-search{float: right;display: inline-block;width: 34px;height: 26px;vertical-align: top;text-indent: -9999px;background: url(//n.sinaimg.cn/finance/caitou/houtai/img/index-pic02.png) no-repeat center center;border: none;/*border-left: 1px solid #cdd0d4;*/outline: none;}
+.search-trigger .search-ipt[type="text"]:focus{outline: none;border: 0 none;box-shadow: none;}
+.search-trigger-on{border: 1px solid #5497ff;}
+.search-trigger-on .btn-search{border-left: 1px solid #5497ff;}
+#searchType{display: none;float: left;margin-top: 22px;border: 0 none;width: 70px;}
+
+/* 模拟select*/
+.selectView{display: none;position: absolute;width: 80px;text-align: left;cursor: default;}
+.selectView .ds_cont{background: #fff;height: 18px;line-height: 18px;}
+.selectView .ds_title{float: left;padding-left: 3px;font-size: 14px;color: #333333;}
+.selectView .ds_button{float: right;width: 14px;height: 14px;margin: 2px 2px 0 0;display: inline;background: url(//n.sinaimg.cn/finance/caitou/houtai/img/index-pic14.png) no-repeat center center;}
+.selectView .ds_list{position: absolute;top: 19px;left: 0;background: #fff;width: 100%;}
+.selectView .ds_list p{line-height: 16px;margin: 1px;color: #000;padding-left: 2px;background: #fff;}
+.selectView .ds_list p.selected{background: #335ea8;color: #fff;}
+
+.hdlink3 {
+    background-image: url(//n.sinaimg.cn/finance/app2018/images/finance_logo.png);
+    background-image: -webkit-image-set(url(//n.sinaimg.cn/finance/app2018/images/finance_logo.png) 1x, url(//n.sinaimg.cn/finance/app2018/images/finance_logo2x.png) 2x);
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    background-size: 20px 20px;
+    cursor: pointer;
+    display: inline;
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    padding-left: 25px;
+    width: 112px;
+    margin-left: 5px;
+    float: right;
+    color:#333;
+    font-size: 14px;
+}
+/*header end*/
+
+/*nav start*/
+.m-nav-part-w{margin: 0 auto;width: 100%;height: 50px;line-height: 50px;background: #FC6A65;}
+.m-nav-box{position: relative;zoom: 1;float: left;font-size: 14px;color: #fff;}
+.m-nav-box .u-nav-item{display: block;padding: 0 33px;color: #fff;}
+.m-nav-box:hover,
+.m-nav-part li.on{background: #FD402F;}
+.m-nav-others{padding: 0 30px;border: 1px solid #e7e7e7;width: 420px;box-shadow: 0 0 1px #e7e7e7;background: #fff;overflow: hidden;zoom: 1;position: absolute;top: 50px;right: 0;z-index: 999;display: none;}
+.m-nav-others-row{border-bottom: 1px dashed #e7e7e7;text-align: left;}
+.m-nav-others-row a{padding: 0 8px;height: 50px;line-height: 50px;font-size: 14px;color: #666666;}
+.m-nav-others-row a:hover{color: #FD402F;}
+/*nav end*/
+
+/*mian start*/
+/*.main-content{margin: 0 auto;width: 1240px}*/
+.main-title{font-size: 38px;color: #4d4f53;line-height: 38px;padding: 50px 0 40px; font-weight: bold;}
+.top-bar-wrap{height: 64px;position: relative;z-index: 10000}
+.top-bar{height: 64px;border: 1px solid #e5e5e5;border-width: 1px 0;width: 100%;background: #fff}
+.top-bar-inner{width: 1240px;margin: 0 auto}
+.top-bar-fixed{position: fixed;top: 0;z-index: 1000;background: #F8F8F8;-webkit-box-shadow: 0 2px 4px #ACACAC;box-shadow: 0 2px 4px #ACACAC;left: 0}
+
+/*吸顶标题*/
+.top-bar-inner .second-title{display: none;font-size: 20px;line-height: 64px;float: left;width: 635px;overflow: hidden;white-space: nowrap;font-weight: 700;color: #4d4f53}
+.top-bar-fixed .second-title{display: block}
+.top-bar-fixed .date-source{display: none}
+
+.date-source{float:left;line-height:16px;padding:24px 0}
+.date-source .date{font-size:16px;color:#888}
+.date-source .source{font-size:16px;color:#FC6A65;padding-left: 12px;}
+.date-source .source:visited{color:#FC6A65;text-decoration:none}
+.date-source .source:hover{text-decoration:none}
+.date-source.original{padding-left: 65px; background-image: url(//n.sinaimg.cn/finance/pc/cj/kandian/img/article_pic06.png);background-image: -webkit-image-set(url(//n.sinaimg.cn/finance/pc/cj/kandian/img/article_pic06.png) 1x, url(//n.sinaimg.cn/finance/pc/cj/kandian/img/article_pic06_2x.png) 2x);background-repeat: no-repeat;background-position:left center;}
+.page-tools{position: relative; float:right;padding-top:23px}
+.tool-icon{height:18px;float:left;border-left:1px solid #e5e5e5;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}
+.tool-icon a{display: block;width: 66px;height: 30px;background-image: url(//n.sinaimg.cn/finance/pc/cj/kandian/img/sina_finance_2017_icon2.png);background-image: -webkit-image-set(url(//n.sinaimg.cn/finance/pc/cj/kandian/img/sina_finance_2017_icon2.png) 1x, url(//n.sinaimg.cn/finance/pc/cj/kandian/img/sina_finance_2017_icon22x.png) 2x);background-repeat: no-repeat;text-indent: -999em;margin-top: -6px;background-position: -999rem 0}
+.tool-icon.first{border-left:0}
+.tool-audio a{background-position:-608px 1px}
+.tool-audio a:hover{background-position:-608px -49px;}
+.tool-des-fs a{background-position:20px 1px}
+.tool-des-fs a:hover{background-position:20px -49px;}
+.tool-des-fs a.disable{background-position: 20px -99px}
+.tool-ins-fs a{background-position: -45px 1px}
+.tool-ins-fs a:hover{background-position: -45px -49px}
+.tool-ins-fs a.disable{background-position: -45px -99px}
+.tool-fav a{background-position: -113px 1px}
+.tool-fav .favorited,
+.tool-fav a:hover{background-position: -113px -49px}
+.tool-wb a{background-position: -180px 1px}
+.tool-wb a:hover{background-position: -180px -49px}
+.tool-wx a{background-position: -247px 1px}
+.tool-wx a:hover{background-position: -247px -49px}
+.tool-share a{background-position: -313px 1px}
+.tool-share a:hover{background-position: -313px -49px}
+.tool-cmt a{background-position: -376px 2px;float: left;padding-left: 66px;line-height: 30px;text-indent: 0;text-decoration: none}
+.tool-cmt .num{font-size: 24px;color: #FC6A65; font-weight: bold;}
+
+.pop-audio-drop{background-image: url(//n.sinaimg.cn/finance/pc/cj/kandian/img/sina_finance_audio_pop_bg.png);background-image: -webkit-image-set(url(//n.sinaimg.cn/finance/pc/cj/kandian/img/sina_finance_audio_pop_bg.png) 1x, url(//n.sinaimg.cn/finance/pc/cj/kandian/img/sina_finance_audio_pop_bg2x.png) 2x);background-repeat: no-repeat;width: 125px;height: 200px;margin-left: -27px}
+.pop-audio-left{background-position: -285px 0;width: 132px;margin: -45px 0 0 -141px}
+.pop-audio-right{background-position: -137px 0;width: 132px;margin: -45px 0 0 67px}
+
+.pop-audio-drop img{width: 106px;height: 106px;display: block;position: absolute;left: 10px;top: 20px}
+.pop-audio-drop span.qr-img-bg{width: 15px;height: 14px;left: 55px;top: 67px;position: absolute;background-repeat: no-repeat;background-image: url(//n.sinaimg.cn/finance/home/qr-finance-bg1x.png?20171012);background-image: -webkit-image-set(url(//n.sinaimg.cn/finance/home/qr-finance-bg1x.png?20171012) 1x,url(//n.sinaimg.cn/finance/home/qr-finance-bg2x.png?20171012) 2x)}
+.pop-audio-right img{left: 17px}
+.pop-audio-right span.qr-img-bg{left: 61px}
+
+.share-more-list{position: absolute;top: 45px;left: 335px;-webkit-box-shadow: 0 2px 4px #eaeaea;box-shadow: 0 2px 4px #eaeaea;background: #fff}
+.share-more-list .tool-icon{height: 38px;border-left: 0;float: none}
+.share-more-list .tool-icon a{padding-left: 59px;width: 73px;text-indent: 0;line-height: 38px;font-size: 14px;margin-top: 0;height: 38px;color: #979797}
+.share-more-list .tool-icon a:visited{text-decoration: none;color: #979797}
+.share-more-list .tool-icon a:hover{text-decoration: none;background-color: #F7F8F9;color: #979797}
+.share-more-list .tool-share-qq a{background-position: -388px -45px}
+.share-more-list .tool-share-qqzone a{background-position: -388px -93px}
+
+/*我的收藏*/
+.my-favor{float: right;padding: 0 19px;line-height: 45px;height: 45px}
+.my-favor a{font-size: 14px}
+.my-favor i{background-image: url(//n.sinaimg.cn/finance/pc/cj/kandian/img/sina_finance_2017_icon2.png);background-image: -webkit-image-set(url(//n.sinaimg.cn/finance/pc/cj/kandian/img/sina_finance_2017_icon2.png) 1x, url(//n.sinaimg.cn/finance/pc/cj/kandian/img/sina_finance_2017_icon22x.png) 2x);background-repeat: no-repeat;background-position: -137px -105px;display: inline-block;width: 20px;height: 20px;vertical-align: -4px;margin-right: 5px}
+.my-favor:hover i{background-position: -202px -105px}
+
+
+/*正文统一样式*/
+.article-content{margin-top: 20px;}
+.article-content-left{width: 880px;margin-right: 40px;float: left;}
+.article-content-right{width: 320px;float: right;}
+
+/*正文 start*/
+.article-content .article h1,.article h2,.article h3,.article h4,.article h5,.article h6{font-weight: normal!important;font-size: 16px!important;line-height: 2em!important;text-indent: 2em!important;}
+.article-content .article{/*word-break:break-all;*/word-wrap:break-word;color:#4d4f53;font-size:18px;line-height:2em;overflow:hidden;}
+.article-content .article img{display:block;margin: 0 auto;max-width: 660px;}
+.article-content .article a{color:#1976E8;}
+.article-content .topic-url:visited{color:#0583e6;}
+.article-content .article u,.article-content .article ins{text-decoration:none}
+.article-content .article p,.article-content .article div{margin-bottom:1em}
+.article-content .article p{text-indent: 2em!important;padding: 0!important;}
+.article-content .article p:last-child,.article-content .article div:last-child{margin-bottom:0}
+.article-content .article iframe{border:0;width:600px}
+.article-content .article video{width:100%;max-height:400px;background-color:#000}
+.article .survey_result_body .survey_result_item h2{text-indent: 0em!important;}
+.article .survey_result_body .survey_result_item .opts p{text-indent: 0em!important;}
+.article .survey_result_body .survey_result_title{text-indent: 0em!important;line-height: 24px!important;}
+.article .survey_content_body .survey_content_title{line-height: 24px!important;font-size: 18px!important;font-weight: normal!important;text-indent: 0em!important;}
+/*微博*/
+.article-content .weibo-2017 .name a{color:#333;}
+.article-content .weibo-2017 .date a{color: #999;}
+.article-content .weibo-2017 .date a:visited{color: #999;}
+.article-content .weibo-2017 .date a:hover{color: #0583e6;text-decoration: none;}
+.article-content .weibo-2017 .handle a:hover{color: #0583e6;text-decoration: none;}
+/*字体控制*/
+.article-20 .article{font-size:20px;line-height: 36px;}
+.article-16 .article{font-size:16px;line-height: 30px;}
+.article-16 .quotation p{font-size: 14px;line-height: 26px;}
+.article-20 .quotation p{font-size: 18px;line-height: 32px;}
+/*正文 end*/
+
+/*评论 start*/
+.sina-comment-wrap{border-top: none;overflow-y: auto}
+.sina-comment-form .right-actions{clear:none;}
+.sina-comment-list{background-color: #fff;overflow-y: auto}
+.sina-comment-form{border-top: solid 3px #333;}
+.sina-comment-form .wrap-title{color: #333;background-image: url(//n.sinaimg.cn/finance/pc/cj/kandian/img/article_pic02.png);background-position: left center;}
+.sina-comment-form .count em,.sina-comment-list .name a,.sina-comment-list .txt a,.sina-comment-list a:active,.sina-comment-list a:hover,.sina-comment-wrap .more em,.sina-comment-wrap a:active,.sina-comment-wrap a:hover,.sina-comment-wrap em{color: #FC6A65; }
+/*.sina-comment-wrap a, .sina-comment-wrap a:visited{color:#1976e8;}*/
+.sina-comment-form .comment{background: #FC6A65;}
+.sina-comment-form .comment:hover{background: #FD402F;}
+.sina-comment-wrap .btn.btn-disabled{background: #999;}
+.feed-card-item:hover,.feed-card-loading1{background-color: #fff}
+.sina-comment-list .title{border-right: solid 1px #fff}
+.sina-comment-list .title .name{color: #333;border-bottom-color: #333}
+.sina-comment-list .latest-wrap .title .name{color: #333;border-bottom-color: #333}
+.sina-comment-form .comment:active,.sina-comment-form .comment:focus,.sina-comment-form .comment:hover,.sina-comment-form .comment:visited{color: #fff}
+.sina-comment-form .bd .user .name{padding: 0 5px;height: 20px;overflow: hidden;word-break: break-all}
+.sina-comment-wrap .sina-comment-list .item .btns .reply,.sina-comment-wrap .sina-comment-list .item .btns .vote {
+    background-image: url(//n.sinaimg.cn/finance/pc/cj/kandian/img/sprite.png);
+}
+.feed-card-tab{border-top: none}
+.feed-wrap{margin-top: 30px;padding-top: 20px}
+.feed-wrap .feed-title{border-left: 5px solid #ff8500;height: 20px}
+.feed-wrap h3{font-size: 18px;padding-left: 10px;line-height: 20px;font-weight: 700;color: #333;margin-left: 2px}
+.feed-wrap .sina-comment-wrap{border-top: 0}
+.feed-card-loading1{border: 1px solid #ccc;color: #767676;border-radius: 0;font-size: 14px}
+.feed-card-loading1:hover{background-color: #fff1d8;border-color: #ffcd8c;color: #ff8500}
+.feed-card-item:last-child{border-bottom: none}
+.feed-card-page .pagebox_num_nonce,.feed-card-page a:hover{border-color: #ca9341;background-color: #fe8503}
+@-webkit-keyframes showComment{0%{right:-100%}
+    60%{right:-2%}
+    80%{right:-1%}
+    100%{right:0}
+}
+@keyframes showComment{0%{right:-100%}
+    60%{right:-2%}
+    80%{right:-1%}
+    100%{right:0}
+}
+@-webkit-keyframes showCommentIpad{0%{left:-100%}
+    60%{left:-2%}
+    80%{left:-1%}
+    100%{left:0}
+}
+@keyframes showCommentIpad{0%{left:-100%}
+    60%{left:-2%}
+    80%{left:-1%}
+    100%{left:0}
+}
+.comment-wrap{width: 570px;position: fixed;display: none;top: 0;z-index: 90001}
+.comment-wrap .comment-close{position: absolute;left: 0;top: 0;width: 22px;height: 37px;overflow: hidden;background: url(../n.sinaimg.cn/finance/page2017/images/comment_close.png) 6px center no-repeat #fff;border: 1px solid #D8D8D8;border-right: 0;text-indent: -9999px;border-radius: 3px 0 0 3px;z-index: 100}
+.isIpad{position: relative}
+.isIpad .comment-wrap{left: 0}
+.comment-wrap .sina-comment-wrap{margin-left: 21px;border-top: 0}
+.isIpad .comment-wrap .sina-comment-wrap{margin-left: 0;margin-right: 90px}
+.comment-mode .comment-wrap,.comment-mode-ipad .comment-wrap{display: block}
+.comment-mode .comment-wrap{right: 0;-webkit-animation: showComment .5s forwards;animation: showComment .5s forwards}
+.comment-mode-ipad .comment-wrap{left: 0!important;-webkit-animation: showCommentIpad .5s forwards;animation: showCommentIpad .5s forwards}
+.comment-mode-ipad,.comment-mode-ipad body{background-color: #E3E3E3;height: 100%;overflow: hidden}
+.comment-mode-ipad #page-tools,.comment-mode-ipad .footer,.comment-mode-ipad .sina15-top-bar-wrap,.pad-side-tool .close-small{visibility: hidden}
+.comment-mode-ipad .pad-side-tool .close-small{visibility: visible}
+.comment-mode-ipad .pad-side-tool{z-index: 90002!important}
+.comment-mode-ipad .sina-comment-top{z-index: 1}
+.sina-comment-layer-wrap,.sina-comment-tip,.sina-comment-vote-tip,.sinacMNT_logout .outlogin_layerbox_bylx{z-index: 90002!important}
+.isIpad .feed-wrap .feed-card-actions{display: none}
+.isIpad .comment-wrap .sina-comment-list{overflow-y: scroll;-webkit-overflow-scrolling: touch}
+
+/*评论 end*/
+.blk-related{padding-top: 2px;border-top: 3px solid #FC6A65}
+.tab-related-wrap{float: left;width: 208px;height: 60px}
+.tab-related-fixed{position: fixed;z-index: 1;top: 0}
+.tab-related a{background: url(//n.sinaimg.cn/finance/pc/cj/kandian/img/sina_finance_2017_icon.png) 0 -379px no-repeat;width: 176px;height: 56px;display: block;line-height: 56px;color: #333;font-size: 18px;padding-left: 32px;text-decoration: none;-webkit-transition-duration: .3s;-o-transition-duration: .3s;transition-duration: .3s}
+.tab-related a:visited{text-decoration: none;color: #333}
+.tab-related .cur,.tab-related .cur:visited{color: #fff;text-decoration: none}
+.tab-related a:hover{text-decoration: none}
+.tab-related .cur{background-position: 0 -321px}
+.tab-related .cur:hover{text-decoration: none}
+.tab-cont-related{float: left;margin-left: 32px;width: 640px}
+.ch-invest{margin-top: 20px}
+.blk-comment,.blk-related{margin-top: 40px}
+
+/*天乙*/
+.ty-card-tt a{color: #333}
+.ty-card-tt a:hover{color: #FD402F;}
+.ty-card-tag a{color:#333;}
+.ty-card-tag a:hover{color:#FD402F;}
+.xxl-card-tt a{color:#333;}
+a:hover .ty-card-cmnt-icon{ background: url(//n.sinaimg.cn/finance/pc/cj/kandian/img/icon-cmnt-hover.png) 0 0 no-repeat;}
+.ty-card-cmnt a:hover{color: #FD402F;}
+
+/*右侧导航*/
+.page-right-bar{position: fixed;width: 65px;bottom: 250px;left: 50%;margin-left: 630px; top:50%; margin-top:-154px; }
+.right-bar-btn{display: block; margin-bottom: 12px; padding-top: 34px; width: 65px;height: 31px; line-height: 22px; background: url(//n.sinaimg.cn/finance/pc/cj/kandian/img/sina_finance_2017_icon.png) no-repeat #F7F8F9;background-image: -webkit-image-set(url(//n.sinaimg.cn/finance/pc/cj/kandian/img/sina_finance_2017_icon.png) 1x, url(//n.sinaimg.cn/finance/pc/cj/kandian/img/sina_finance_2017_icon_2x.png) 2x); border-radius: 2px; text-align: center; color: #666; font-size: 12px;}
+.right-bar-btn.btn-home{background-position: 0 0;position: relative}
+.right-bar-btn.btn-home:hover{color:#FD402F; background-position: -65px 0}
+.right-bar-btn.btn-audio{background-position: 0 -590px}
+.right-bar-btn.btn-audio:hover{color:#FD402F; background-position: -65px -590px}
+.right-bar-btn.btn-related{background-position: 0 -77px}
+.right-bar-btn.btn-related:hover{color:#FD402F; background-position: -65px -77px}
+.right-bar-btn.btn-survey{background-position: 0 -154px}
+.right-bar-btn.btn-survey:hover{color:#FD402F; background-position: -65px -154px}
+.right-bar-btn.btn-toTop{background-position: 0 -231px}
+.right-bar-btn.btn-toTop:hover{color:#FD402F; background-position: -65px -231px}
+.btn-home i{width: 6px;height: 6px;border-radius: 50%;position: absolute;top: 10px;right: 20px;line-height: 0;font-size: 0;background: #FC6A65}
+.page-right-bar .fadeOut{opacity: 0}
+
+/*调查居中*/
+.survey_content_body{width:640px;margin:0 auto;}
+
+/*微博列表样式兼容*/
+.weibo-list .weibo-list-meta .weibo-list-meta-r{display:none!important;}
+.weibo-list .weibo-list-source{display:none!important;}
+
+/*css 动画*/
+.imgS:hover {
+    -webkit-transition: -webkit-transform 0.3s ease;
+    -moz-transition: -moz-transform 0.3s ease;
+    -ms-transition: -ms-transform 0.3s ease;
+    transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    -webkit-transform: scale(1.1, 1.1);
+}
+.ani{
+    -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+.infinite { -webkit-animation-iteration-count: infinite !important; animation-iteration-count: infinite !important }
+.scaleIns { -webkit-animation-name: scaleIns; animation-name: scaleIns }
+@-webkit-keyframes scaleIns {0%{-webkit-transform: scale(1);transform: scale(1); opacity: 0; } 50%{-webkit-transform: scale(1.2);transform: scale(1.2); opacity: 1; } 100%{-webkit-transform: scale(1);transform: scale(1); opacity: 1; } }
+@keyframes scaleIns {0%{-webkit-transform: scale(1);transform: scale(1); opacity: 0; } 50%{-webkit-transform: scale(1.2);transform: scale(1.2); opacity: 1; } 100%{-webkit-transform: scale(1);transform: scale(1); opacity: 1; } }
+.scaleDes { -webkit-animation-name: scaleDes; animation-name: scaleDes }
+@-webkit-keyframes scaleDes {0%{-webkit-transform: scale(1);transform: scale(1); opacity: 0; } 50%{-webkit-transform: scale(0.8);transform: scale(0.8); opacity: 1; } 100%{-webkit-transform: scale(1);transform: scale(1); opacity: 1; } }
+@keyframes scaleDes {0%{-webkit-transform: scale(1);transform: scale(1); opacity: 0; } 50%{-webkit-transform: scale(0.8);transform: scale(0.8); opacity: 1; } 100%{-webkit-transform: scale(1);transform: scale(1); opacity: 1; } }
+.bounceFromTop { -webkit-animation-name: bounceFromTop; animation-name: bounceFromTop } @-webkit-keyframes bounceFromTop {0%, 25%, 55%, 85%, 100% {-webkit-animation-timing-function: ease-out;animation-timing-function: ease-out; -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); } 41%, 44% {-webkit-animation-timing-function: ease-in;animation-timing-function: ease-in; -webkit-transform: translate3d(0, -8px, 0) scale3d(1, 1.2, 1); transform: translate3d(0, -8px, 0) scale3d(1, 1.2, 1); } 70% {-webkit-animation-timing-function: ease-in;animation-timing-function: ease-in; -webkit-transform: translate3d(0, -2px, 0); transform: translate3d(0, -2px, 0); } 90% { -webkit-transform: translate3d(0, -1px, 0); transform: translate3d(0, -1px, 0) } } @keyframes bounceFromTop {0%, 25%, 55%, 85%, 100% {-webkit-animation-timing-function: ease-out;animation-timing-function: ease-out; -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); } 41%, 44% {-webkit-animation-timing-function: ease-in;animation-timing-function: ease-in; -webkit-transform: translate3d(0, -8px, 0) scale3d(1, 1.2, 1); transform: translate3d(0, -8px, 0) scale3d(1, 1.2, 1); } 70% {-webkit-animation-timing-function: ease-in;animation-timing-function: ease-in; -webkit-transform: translate3d(0, -2px, 0); transform: translate3d(0, -2px, 0); } 90% { -webkit-transform: translate3d(0, -1px, 0); transform: translate3d(0, -1px, 0) } }
+.flipY { -webkit-animation-name: flipY; animation-name: flipY; }
+@-webkit-keyframes flipY {
+    from {
+        -webkit-transform: perspective(600px) rotateY(-180deg);
+                transform: perspective(600px) rotateY(-180deg);
+        opacity: 0;
+    }
+    to { -webkit-transform: perspective(600px) rotateY(-360deg); transform: perspective(600px) rotateY(-360deg) }
+}
+@keyframes flipY {
+    from {
+        -webkit-transform: perspective(600px) rotateY(-180deg);
+                transform: perspective(600px) rotateY(-180deg);
+        opacity: 0;
+    }
+    to { -webkit-transform: perspective(600px) rotateY(-360deg); transform: perspective(600px) rotateY(-360deg) }
+}
+.fadeInTop { -webkit-animation-name: fadeInTop; animation-name: fadeInTop }
+@-webkit-keyframes fadeInTop {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(-100%);
+                transform: translateY(-100%);
+    }
+    to { opacity: 1 }
+}
+@keyframes fadeInTop {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(-100%);
+                transform: translateY(-100%);
+    }
+    to { opacity: 1 }
+}
+
+.fadeInBottom { -webkit-animation-name: fadeInBottom; animation-name: fadeInBottom }
+@-webkit-keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(100%);
+                transform: translateY(100%);
+    }
+    to { opacity: 1 }
+}
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(100%);
+                transform: translateY(100%);
+    }
+    to { opacity: 1 }
+}
+.fadeOutTop { -webkit-animation-name: fadeOutTop; animation-name: fadeOutTop }
+@-webkit-keyframes fadeOutTop {
+    from { opacity: 1 }
+    to {
+        opacity: 0;
+        -webkit-transform: translateY(-100%);
+                transform: translateY(-100%);
+    }
+}
+@keyframes fadeOutTop {
+    from { opacity: 1 }
+    to {
+        opacity: 0;
+        -webkit-transform: translateY(-100%);
+                transform: translateY(-100%);
+    }
+}
+
+.fadeOutBottom { -webkit-animation-name: fadeOutBottom; animation-name: fadeOutBottom }
+@-webkit-keyframes fadeOutBottom {
+    from { opacity: 1 }
+    to {
+        opacity: 0;
+        -webkit-transform: translateY(100%);
+                transform: translateY(100%);
+    }
+}
+@keyframes fadeOutBottom {
+    from { opacity: 1 }
+    to {
+        opacity: 0;
+        -webkit-transform: translateY(100%);
+                transform: translateY(100%);
+    }
+}
+/*loading logo*/
+.loadinglogo{ -webkit-animation: loadinglogo infinite 1.5s ease-in-out; animation: loadinglogo infinite 1.5s ease-in-out }
+@-webkit-keyframes loadinglogo {
+    50% { -webkit-transform: translateY(15px); transform: translateY(15px) }
+}
+@keyframes loadinglogo {
+    50% { -webkit-transform: translateY(15px); transform: translateY(15px) }
+}
+.loading-logo{background-image: url(//n.sinaimg.cn/finance/page/ent/images/sinaLogo1x.png);background-image: -webkit-image-set(url(//n.sinaimg.cn/finance/page/ent/images/sinaLogo1x.png) 1x,url(//n.sinaimg.cn/finance/page/ent/images/sinaLogo2x.png) 2x);background-repeat: no-repeat;margin: 0 auto;width: 80px;margin-top: 30px;padding-top:36px;font-size:14px;color:#333;background-position:center 0;text-align:center;}
+@-webkit-keyframes pulse {from {-webkit-transform: scale3d(1, 1, 1);transform: scale3d(1, 1, 1); opacity: 0.3;} 50% {-webkit-transform: scale3d(1.3, 1.3, 1.3);transform: scale3d(1.3, 1.3, 1.3);opacity: 1; } to {-webkit-transform: scale3d(1, 1, 1);transform: scale3d(1, 1, 1); opacity: 0.3;} }
+@keyframes pulse {from {-webkit-transform: scale3d(1, 1, 1);transform: scale3d(1, 1, 1); opacity: 0.3;} 50% {-webkit-transform: scale3d(1.3, 1.3, 1.3);transform: scale3d(1.3, 1.3, 1.3);opacity: 1; } to {-webkit-transform: scale3d(1, 1, 1);transform: scale3d(1, 1, 1); opacity: 0.3;} }
+.pulse {
+    -webkit-animation-name: pulse;
+            animation-name: pulse;-webkit-animation-duration: 1.2s;animation-duration: 1.2s;
+}
+/*css 动画 end */
+
+.u-article-title1{line-height: 60px;color: #333;font-size: 20px;}
+.u-article-title1 a{color: #333 ;}
+.u-article-title1 a:hover{color: #FC6A65;}
+/*用户信息*/
+.m-user-info{padding-bottom:35px;border-top:2px solid #FC6A65;}
+.user-info .user-blk{float:left;width:96px;height:96px;}
+.user-info .user-blk img{width:96px;height:96px;border-radius:9999px;cursor:default;}
+.user-info .info-blk{float: right;width:200px;}
+.user-info .info-t{display: block;line-height: 44px; color: #333;font-size: 20px; font-weight: bold;}
+.user-info .info-t:hover{color:#FD402F;}
+.user-info span{color: #333;font-size: 14px;line-height:26px;}
+
+/*排行*/
+.rank-blk{border-top:2px solid #FC6A65;}
+.rank-blk .rank-tabs{margin-top:-12px; border-bottom:1px solid #dedede; height: 40px;line-height: 40px;}
+.rank-blk .rank-tabs a{position: relative; display:block; float:left;width:33%;font-size: 14px;text-align: center; color: #333; font-weight: bold;}
+.rank-blk .rank-tabs .tab-active{border-bottom: 4px solid #FC6A65;}
+.rank-blk .rank-tabs .tab-active:after{border: medium solid transparent; top: 100%; content: " "; height: 0; pointer-events: none; position: absolute; width: 0; border-top-color: #FC6A65; border-width: 10px; left: 50%; margin-left: -10px;}
+.rank-blk .rank-tabs .tab-active{color:#FC6A65;}
+.rank-blk ul{margin-top: 10px;width:300px;}
+.rank-blk ul .gray{background: #f5f6f7;}
+.rank-blk li{border-bottom:1px solid #e5e5e5; padding:12px 0; height:44px;line-height: 22px;font-size: 14px;overflow: hidden;}
+.rank-blk li a{color:#333;}
+.rank-blk li a:hover{color:#FD402F;}
+.rank-blk li span{float: left;margin:10px 18px 0 0px;width: 26px;line-height: 20px;font-size: 20px;color: #4D4F53;text-align: center; font-weight: bold;}
+.rank-blk li .win{color:#FC6A65;}
+
+.rank-blk .u-article-no-hot{margin-top: 10px;font-size: 14px;color: #c3c0b9;line-height: 20px;text-align: center;}
+
+/*作者文章*/
+.m-author-article-list{border-top:2px solid #FC6A65;}
+.m-author-article-list-item{margin-bottom:15px; border-bottom: 1px solid #e5e5e5; padding-bottom: 20px; color: #333; font-size: 14px;}
+.m-author-article-list-item h2{line-height: 24px;margin-bottom: 10px; font-weight: bold;}
+.m-author-article-list-item h2 a{color: #333;}
+.m-author-article-list-item h2 a:hover{color: #FD402F;}
+.u-author-article-list-img{float: left;display: block; width:150px; height: 120px;}
+.u-author-article-list-img img{display: block; width:150px; height: 120px;}
+.u-author-article-list-des{float: right; width: 150px; line-height:26px;}
+.m-author-article-list-item:nth-last-of-type(1){border-bottom: 0 none;}
+
+/*信息 && footer*/
+.m-article-information{margin-top: 45px;}
+.m-erweima-blk{}
+.u-erweima-title{position: relative; margin: 0 auto; line-height: 22px; text-align: center; background: #fff; color: #333; font-size: 20px;}
+.u-erweima-title span{position: relative; padding: 0 20px; background: #fff; color: #333; z-index: 99;}
+.u-erweima-title:after{position: absolute; top:50%; right:0; left:0; margin-top: -1px; width: 100%; height: 2px; background: #333; content: "";}
+.u-erweima-pic{display: block; margin: 20px auto 30px; /*width: 230px; height:230px;*/}
+.u-article-information-des1,.u-article-information-des2{padding-left:30px; line-height: 28px; font-size: 14px; color: #666;}
+.u-article-information-des1 a,.u-article-information-des2 a{ color: #666;}
+.u-article-information-des1{background: url(//n.sinaimg.cn/finance/pc/cj/kandian/img/article_pic03.png) no-repeat left center;background-image: -webkit-image-set(url(//n.sinaimg.cn/finance/pc/cj/kandian/img/article_pic03.png) 1x,url(//n.sinaimg.cn/finance/pc/cj/kandian/img/article_pic03_2x.png) 2x);}
+.u-article-information-des2{background: url(//n.sinaimg.cn/finance/pc/cj/kandian/img/article_pic04.png) no-repeat left center;background-image: -webkit-image-set(url(//n.sinaimg.cn/finance/pc/cj/kandian/img/article_pic04.png) 1x,url(//n.sinaimg.cn/finance/pc/cj/kandian/img/article_pic04_2x.png) 2x);}
+.m-article-footer{margin: 6px auto; border-top:1px dashed #cfcfcf; border-bottom:1px dashed #cfcfcf; padding: 12px 0; line-height: 34px; font-size: 14px; color: #666;}
+.m-article-footer a{color: #666;}
+.m-article-footer a:hover{color: #FD402F;}
+.m-article-footer .xb-blank{padding: 0 8px; color: #797979;}
+.m-article-copyright{margin-top: 10px; color: #666; font-size: 14px; line-height: 28px; }
+
+/*天乙*/
+.cardlist-a__list .clearfix{ clear: none;}
+.cardlist-a__more-c { height: 40px; border: 1px solid #FC6A65; line-height: 40px; color: #FC6A65; background-color: #fff; cursor: pointer; transition: all ease 0.3s;}
+.cardlist-a__more-c:hover{ color: #fff; background-color: #FD402F;}
+
+/*看点*/
+.article-kandian{margin:40px auto; border: 1px solid #feb4b0; padding:20px; display: none;}
+.article-kandian-blk{display: block;}
+.article-kandian-img{float: left;border: 1px solid #eee;width: 120px; height:120px;}
+.article-kandian-box{position: relative; float: right; width: 690px; height:120px;}
+.article-kandian-title{font-size: 16px;color: #333333;line-height: 26px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;}
+.article-kandian-des{position: absolute; bottom:0px; left:0px; width: 100%; line-height: 32px;}
+.article-kandian-lable{font-size: 14px;color: #666666;}
+.article-kandian-des span{float: left;}
+.article-kandian-price{margin-left: 20px; margin-right: 8px; font-size: 22px;color: #FF0136; font-weight: bold;}
+.article-kandian-tag{padding: 0 4px; height: 16px;line-height: 16px;font-size: 12px; color:#fff; background: #989A9C;}
+.article-kandian-des .article-kandian-btn{display: block; float: right; width: 98px;height:32px; line-height: 32px; border: 1px solid #FF0136;background: #FFEDED;border-radius: 1px; text-align: center; font-size: 16px;color: #FF0136;}
+
+.tab-related-wrap .tab_related_app_imglink {
+    background-image: url(//n.sinaimg.cn/finance/app2018/images/f_zwy_app.png);
+    background-image: -webkit-image-set(url(//n.sinaimg.cn/finance/app2018/images/f_zwy_app.png) 1x,url(//n.sinaimg.cn/finance/app2018/images/f_zwy_app2x.png) 2x);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 100% 100%;
+    width: 200px;
+    height: 300px;
+    display: block;
+    overflow: hidden;
+    line-height: 1000px;
+    margin-top: 10px;
+    padding: 0
+}
+.article .fincon_sfapp_pro{
+    border-radius: 10px;
+    margin:10px auto;
+    padding:0 0 0 50px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+    color: #333333;
+    background: url(//n.sinaimg.cn/finance/pc/cj/kandian/img/article_pic07.png) no-repeat #EAF5FF 26px center;
+}
+.article .fincon_sfapp_pro a{
+    line-height: 60px;
+    font-size: 18px;
+    color: #333333;
+}
+/*1000px*/
+@media screen and (min-width:768px) and (max-width:1480px){
+    .m-nav-part{margin: 0 auto;width: 1000px;}
+    .m-nav-box .u-nav-item{padding: 0 24px;}
+    .m-header-part, .main-content{width: 1000px;}
+    .tool-icon a{width:60px;}
+    .sina-header-inner{width:1000px}
+    .top-bar-inner{width: 1000px;}
+    .main-content{width:1000px}
+    .article-content-left{width:640px}
+    .top-banner .tb-right{display: none;}
+    .article-content-left .top-ad{width: 640px;}
+    .page-right-bar{margin-left: 510px;}
+    .right-bar-btn{background: #fff; background:url(//n.sinaimg.cn/finance/pc/cj/kandian/img/sina_finance_2017_icon.png) no-repeat rgba(247,248,249,0.8);}
+    .top-bar-inner .second-title{font-size: 18px;width: 430px;}
+
+/*    .right-bar-btn.btn-home{background-position: -130px 0;}
+    .right-bar-btn.btn-home:hover{background-position: -195px 0;}
+    .right-bar-btn.btn-related{background-position: -130px -77px;}
+    .right-bar-btn.btn-related:hover{background-position: -195px -77px;}
+    .right-bar-btn.btn-survey{background-position: -130px -154px;}
+    .right-bar-btn.btn-survey:hover{background-position: -195px -154px;}
+    .right-bar-btn.btn-toTop{background-position: -130px -231px;}
+    .right-bar-btn.btn-toTop:hover{background-position: -195px -231px;}*/
+
+    .tab-related-wrap{width: 100%;background-color: #F5F5F5;height: 56px;}
+    .tab-related-fixed{width: 640px;background-color: #F5F5F5;height: 56px;}
+    .tab-related a{background: #FC6A65;width: 150px;-webkit-transition-duration:0.3s;-o-transition-duration:0.3s;transition-duration:0.3s;padding-left: 0;text-align: center;float: left;}
+    .tab-related .cur{background-position: 0 -439px;}
+    .tab-cont-related{margin-left: 0;}
+    .article-kandian-box{width:460px;}
+    .tab-related-wrap .tab_related_app_imglink {
+        display: none;
+    }
+}
+

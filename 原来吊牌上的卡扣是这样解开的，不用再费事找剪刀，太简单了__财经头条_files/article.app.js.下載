@@ -1,0 +1,342 @@
+// 登陆
+__SinaTopBar__.user.init(document.getElementById('SI_User'), {
+    entry: SINA_TEXT_PAGE_INFO.entry,
+    login_success: function() {
+        that.articleFavoritor.onLoginSuccess();
+        $('.J_Unlogin').hide();
+        if (win._sinaArticleSurvey) {
+            win._sinaArticleSurvey.onLoginSuccess();
+        }
+    },
+    logout_success: function() {
+        that.articleFavoritor.onLogoutSuccess();
+        $('.J_Unlogin').show();
+        if (win._sinaArticleSurvey) {
+            win._sinaArticleSurvey.onLogoutSuccess();
+        }
+    },
+    getWeiboInfo: function(info) {}
+});
+// 导航
+(function(){
+    $(".m-nav-others-item").hover(function() {
+        $("#more_nav").show();
+    }, function() {
+        $("#more_nav").hide();
+    });
+})();
+/*右侧浮层工具*/
+(function() {
+    $('[node-type="toTop"]').on('click', function() {
+        $('body,html').animate({ scrollTop: 0 }, 500);
+    });
+    $('[node-type="toRelated"]').on('click', function() {
+        var _top = $('#tab_related').offset().top;
+        $('body,html').animate({ scrollTop: _top }, 500);
+    });
+    $(window).on('scroll', function() {
+        //var self = obj;
+        var _top = $(document).scrollTop();
+        if (_top >= 800) {
+            $('[node-type="toTop"]').removeClass('fadeOut');
+        } else {
+            $('[node-type="toTop"]').addClass('fadeOut');
+        }
+    });
+})();
+// 语音二维码
+(function () {
+    var _popdom = $('[node-type="audio-pop"]');
+    if (_popdom.size()) {
+        _popdom.on('mouseenter', function () {
+            var _this = $(this),
+                _pos = _this.attr('node-pop'),
+                _l = _this.offset().left,
+                _t = _this.offset().top,
+                _w = _this.width(),
+                _cls = ['pop-audio-drop'],
+                // _url = '//comet.blog.sina.com.cn/qr?http://cj.sina.cn/article/norm_detail?url=' + encodeURIComponent(location.href) + '&part=1';
+                _url = '//cj.sina.com.cn/?s=upload&a=qrcode&url=https://cj.sina.cn/article/norm_detail?url=' + encodeURIComponent(location.href) + '&part=1';
+
+            $('.pop-audio-drop').remove();
+            if (_pos == 'right') {
+                var _ww = $(window).width() - _l - _w;
+                if (_ww < 190) {
+                    _cls.push('pop-audio-left')
+                } else {
+                    _cls.push('pop-audio-right')
+                }
+            }
+            _cls = _cls.join(' ');
+            var _left = _this.offset().left + (_this.width()) / 2 - 30;
+            var _top = _this.offset().top + 34;
+            var _drop = $('<div><img src="' + _url + '" /><span class="qr-img-bg"></span></div>').addClass(_cls).css({
+                'position': 'absolute',
+                'z-index': 99999,
+                'left': _left,
+                'top': _top,
+                'display': 'none'
+            }).appendTo($('body')).fadeIn(400);
+        }).on('mouseleave', function () {
+            $('.pop-audio-drop').fadeOut(400);
+        }).on('click', function (e) {
+            e.preventDefault();
+        })
+    }
+})()
+/*正文页吸顶工具栏*/
+SinaPage.loadWidget({
+    trigger: {
+        id: 'top_bar_wrap'
+    },
+    require: [{
+        // url: '//finance.sina.com.cn/other/src/pageTools.final.js'
+        url:'//n.sinaimg.cn/finance/pc/cj/kandian/js/pageTools.js'
+    }],
+    triggerAhead: false,
+    onAfterLoad: function() {
+        //console.log(this)
+
+        new PageTool.SetScrollFixed({
+            wrap: 'top_bar', //吸顶的元素id
+            start: 'top_bar_wrap', //跟随滚动元素外层id
+            end: 'article-bottom', //结束滚动元素id
+            fixedClass: 'top-bar-fixed' //吸顶的class
+        });
+    }
+});
+/*字体控制-分享-收藏*/
+SinaPage.loadWidget({
+    require: [{
+            url: '//finance.sina.com.cn/other/src/pageTools.final.js'
+        },
+        {
+            url: '//n.sinaimg.cn/finance/fe/share.min.js'
+        }
+    ],
+    onAfterLoad: function() {
+        new PageTool.FontAdjustor(); //字体调节
+        // new PageTool.AddFavorite({ //添加收藏
+        //     docid: SINA_TEXT_PAGE_INFO.docID
+        // });
+        /*new PageTool.AddAniByAttr({//按钮动画
+         attr : 'ani-hover',
+         event : 'mouseover',
+         aniClass:'ani',
+         disableClass:'disable',
+         onClick:function(){},
+         onAnimationEnd:function(){}
+
+         });*/
+        //分享
+        var shareImg = document.getElementById('artibody') && document.getElementById('artibody').getElementsByTagName('img')[0];
+        var shareTitle = $('.main-title').html().replace(/<[^<>]*?font[^<>]*?>/gi, '');
+        var pcUrl = window.location.href;
+        // var toutiaoUrl = 'https://cj.sina.com.cn/article/normal_detail?url=' + encodeURIComponent(pcUrl);
+        var toutiaoUrl = pcUrl;
+
+        //为文章顶部的分享按钮配置share组件
+        var topShare = new FnShare('#top_bar', {
+            url: pcUrl,
+            wxurl: toutiaoUrl,
+            img: shareImg ? shareImg.src : '',
+            title: shareTitle,
+            security: 'https'
+        });
+        //点击评论按钮跳到屏幕组件
+        $('[node-type="comment"]').on('click', function() {
+            var _cmtTop = $('#bottom_sina_comment').offset().top
+            $('body,html').animate({ scrollTop: _cmtTop }, 500);
+        });
+    }
+});
+
+//评论组件
+SinaPage.loadWidget({
+    //加载评论
+    /*trigger: {
+     id: 'wrap_bottom_omment'
+     },*/
+    require: [{
+        url: '//finance.sina.com.cn/other/src/article-comment-2017.js'
+    }],
+    onAfterLoad: function() {
+        //console.log(this)
+        //容器id或容器节点
+        var PAGE_INFO = window.SINA_TEXT_PAGE_INFO;
+        var _cmt = window.___sinacMNT___;
+        var wrapId = 'bottom_sina_comment';
+        //评论表单选项
+        var formOpt = {
+            channel: PAGE_INFO.channel, //频道
+            newsid: PAGE_INFO.newsid, //新闻id
+            allNewsid: '', //组新闻ID
+            parent: '', //回复的mid
+            encoding: 'utf-8',
+            commented: function(content, contentHTML) {
+                //评论后回调
+            },
+            share_url: location.href.split('#')[0], //分享的链接
+            video_url: '', //分享的视频地址
+            img_url: '', //分享图片地址
+            postTip: '我有话要说...', // 输入提示，如“请输入评论”
+            autoGrow: false, // 输入框是否自动增高
+            content: '' // 默认评论内容，如添加话题“#刘德华军同款军大衣#”
+        };
+        var cmtSudaInit = true;
+        //评论列表选项
+        var listOpt = {
+            url: '', //评论接口URL
+            channel: PAGE_INFO.channel,
+            newsid: PAGE_INFO.newsid,
+            //showReply: 1,//显示回复串//@A:xxxx//@B:xxxx
+            group: 0, //等同于style=X
+            encoding: 'utf-8',
+            hotPageNum: 3, // 【最热评论】默认显示条数
+            latestPageNum: 3, //【最新评论】默认显示条数
+            replyShowNum: 3, //【回复列表】默认显示条数
+            replyPageNum: 15, //【回复列表】点击加载更多的条数
+            replyClickMoreTimes: 3, //【回复列表】可点击加载更多回复按钮的次数
+            clickMoreTimes: 0, //【最热评论】可点击“更多评论”按钮次数,达到该次数后，显示“查看更多评论”链接，点击跳转
+            maxWordCount: 200,
+            loaded: function(self) {
+                var numSplit = function numSplit(num) {
+                    num = num + "";
+                    var re = /(-?\d+)(\d{3})/;
+                    while (re.test(num)) {
+                        num = num.replace(re, "$1,$2");
+                    }
+                    return num;
+                };
+                //console.log(self);
+                if (self.data && self.data.count && self.data.count.total) {
+
+                    $('[node-type="comment-num"]').html(numSplit(self.data.count.total));
+                }
+                if (cmtSudaInit) {
+                    cmtSudaInit = false;
+                }
+            },
+            beforeLoad: function() {
+                //alert('beforeLoad');
+            }
+        };
+        var opt = {
+            isBBS: 0, // 是否是论坛页面
+            hideList: 0 // 是否隐藏列表：某些新闻需要隐藏列表，加载数据但不渲染列表
+        };
+        window.bottom_comment = new _cmt.cmnt.FormList(wrapId, formOpt, listOpt, opt);
+
+    }
+});
+//相关微博、相关新闻
+SinaPage.loadWidget({
+    trigger: {
+        id: 'tab_related'
+    },
+    require: [
+        // 天乙资源
+        [{
+            url: '//sjs0.sinajs.cn/video/sinaplayer/js/page/player_v1.js'
+        }, {
+            url: '//h5.sinaimg.cn/m/videoPlayer/js/ty.e56f55e8.js'
+        }, {
+            url: '//news.sina.com.cn/js/pctianyi/sima.js'
+        }],
+        {
+            url: '//news.sina.com.cn/js/pctianyi/tianyi.js'
+        },
+        {
+            // url: '//n.sinaimg.cn/finance/pctianyi_wdg/apps/fin-atc-feed/js/feed-app.js'
+            // url: 'js/feed-app.js'
+            url: '//n.sinaimg.cn/finance/pc/cj/kandian/js/feed-app.js?4'
+        },
+        {
+            url: '//n.sinaimg.cn/finance/page/ent/js/weiboList.js'
+        },
+        {
+            url: '//n.sinaimg.cn/finance/fe/Tab-min.js'
+        }
+    ],
+    onAfterLoad: function() {
+        //相关新闻-相关微博  tab按钮吸顶
+        new PageTool.SetScrollFixed({
+            wrap: 'tab_related_btn', //吸顶的元素id
+            start: 'tab_related', //吸顶元素浮层id
+            fixedClass: 'tab-related-fixed' //吸顶的class
+        });
+        //实例化tab标签
+        var tab1 = new Tab({
+            bonds: [
+                ['tab01_btn01', 'tab01_cont01'],
+                ['tab01_btn02', 'tab01_cont02']
+            ], // 绑定dom，复杂数组格式，每组一对
+            selected: 'cur', // 选择项的className，默认值"tab_selected"
+            trigger: 'click', // 触发条件，默认值"mouseover"
+            onAfter: function(to) {
+                var me = this;
+                var wbTab = $('#tab01_btn02');
+                var _top = $('#tab_related').offset().top;
+                $('body,html').animate({ scrollTop: _top }, 500);
+                if (to == 1 && wbTab.attr('data-first') != '1') {
+                    //点击微博标签之后才加载iframe,并将标签设为已加载
+                    new WeiboList({
+                        id: 'related_wb',
+                        keywords: $('#keywords').attr('data-wbkey')
+                    });
+                    wbTab.attr('data-first', '1');
+                }
+            }
+        });
+    }
+});
+// 排行tab
+(function() {
+    var rankTab = new Tab({
+        bonds: [
+            ['tab0', 'tab_con0'],
+            ['tab1', 'tab_con1'],
+            ['tab2', 'tab_con2'],
+        ],
+        selected: 'tab-active',
+        trigger: 'mouseover'
+    });
+})();
+
+(function(){
+    var kandianUrl='//cj.sina.cn/k/api/article/goods';
+    var kandianTpl='<a class="article-kandian-blk clearfix" href="@href@" target="_blank">'
+            +'    <img class="article-kandian-img" src="@pic@" alt="">'
+            +'    <div class="article-kandian-box">'
+            +'        <h2 class="article-kandian-title">@title@</h2>'
+            +'        <div class="article-kandian-des clearfix">'
+            +'            <span class="article-kandian-lable">价格</span>'
+            +'            <span class="article-kandian-price">¥ @price@</span>'
+            +'            <span class="article-kandian-tag">@tag@</span>'
+            +'            <span class="article-kandian-btn">去看看</span>'
+            +'        </div>'
+            +'    </div>'
+            +'</a>';
+    $.ajax({
+        url: kandianUrl,
+        type: 'GET',
+        dataType: 'jsonp',
+        data: {url: pageUrl},
+    })
+    .done(function(data) {
+        // console.log(data);
+        if (data.result.status.code==0) {
+            var data=data.result.data;
+            var html=kandianTpl.replace(/@href@/g,data.sku_middle_url).replace(/@title@/g,data.sku_name).replace(/@pic@/g,data.img_url).replace(/@price@/g,data.price_pc==0?data.price_wl:data.price_pc).replace(/@tag@/g,data.ec_plat_name);
+            $("#article_kandian").html(html).show();
+        };
+    })
+    .fail(function() {
+        console.log("error");
+    })
+    .always(function() {
+        console.log("complete");
+    });
+
+
+})();
